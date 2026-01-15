@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ChevronLeft, ChevronRight, ArrowRight, Play, CheckCircle2, 
-  Globe, Building2, Zap, Sprout, Mail, MapPin, Phone, 
-  ExternalLink, BarChart3, ShieldCheck, Users2
+import {
+  ChevronLeft, ChevronRight, ChevronDown, ArrowRight, Play, CheckCircle2,
+  Globe, Building2, Zap, Sprout, Mail, MapPin, Phone, Menu, X,
+  ExternalLink, BarChart3, ShieldCheck, Users2, Linkedin
 } from 'lucide-react';
 import { SectionContainer, SectionTitle, PrimaryButton, SecondaryButton, Badge } from './components/UI';
 import { PORTFOLIO_DATA, SERVICES_DATA, FAQS_DATA } from './constants';
@@ -14,6 +14,7 @@ import { InquiryType } from './types';
 
 const Navbar = ({ currentPage }: { currentPage: string }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -25,49 +26,99 @@ const Navbar = ({ currentPage }: { currentPage: string }) => {
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Services', href: '#services' },
     { name: 'Thesis', href: '#thesis' },
+    { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
 
+  const handleNavClick = (href: string) => {
+    window.location.hash = href;
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || currentPage !== 'home' ? 'glass-nav shadow-lg py-4' : 'bg-transparent py-8'}`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => window.location.hash = ''}>
-          <div className="w-12 h-12 bg-[#0F172A] flex items-center justify-center transition-transform group-hover:rotate-12">
-            <span className="text-[#C5A059] font-bold text-2xl italic heading-serif">S</span>
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || currentPage !== 'home' ? 'glass-nav shadow-lg py-4' : 'bg-transparent py-8'}`}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+          <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => window.location.hash = ''}>
+            <div className="w-12 h-12 bg-[#0F172A] flex items-center justify-center transition-transform group-hover:rotate-12">
+              <span className="text-[#C5A059] font-bold text-2xl italic heading-serif">S</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-xl tracking-tighter text-[#0F172A]">SSFO</span>
+              <span className="text-[10px] uppercase tracking-widest text-[#64748B] -mt-1 font-bold">Family Office</span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="font-bold text-xl tracking-tighter text-[#0F172A]">SSFO</span>
-            <span className="text-[10px] uppercase tracking-widest text-[#64748B] -mt-1 font-bold">Family Office</span>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex space-x-10 items-center">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`text-sm font-semibold tracking-wide transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#C5A059] after:transition-all ${currentPage === link.href.slice(1)
+                  ? 'text-[#C5A059] after:w-full'
+                  : 'text-[#0F172A] hover:text-[#C5A059] after:w-0 hover:after:w-full'
+                  }`}
+              >
+                {link.name}
+              </a>
+            ))}
+            <PrimaryButton className="py-2.5 px-6 text-xs uppercase tracking-widest" onClick={() => window.location.hash = '#contact'}>
+              Submit Deal
+            </PrimaryButton>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2 text-[#0F172A] hover:text-[#C5A059] transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
-        
-        <div className="hidden lg:flex space-x-10 items-center">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className={`text-sm font-semibold tracking-wide transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#C5A059] after:transition-all ${
-                currentPage === link.href.slice(1) 
-                ? 'text-[#C5A059] after:w-full' 
-                : 'text-[#0F172A] hover:text-[#C5A059] after:w-0 hover:after:w-full'
-              }`}
-            >
-              {link.name}
-            </a>
-          ))}
-          <PrimaryButton className="py-2.5 px-6 text-xs uppercase tracking-widest" onClick={() => window.location.hash = '#contact'}>
-            Submit Deal
-          </PrimaryButton>
-        </div>
-      </div>
-    </motion.nav>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="fixed inset-0 z-40 bg-[#0F172A] pt-24 px-6"
+          >
+            <nav className="flex flex-col space-y-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-2xl font-bold text-white hover:text-[#C5A059] transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <PrimaryButton
+                className="mt-8 w-full py-4 text-center"
+                onClick={() => handleNavClick('#contact')}
+              >
+                Submit a Deal →
+              </PrimaryButton>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
+
 
 const Footer = () => (
   <footer className="bg-[#0F172A] text-white pt-24 pb-12 px-6 md:px-12 lg:px-24">
@@ -84,7 +135,7 @@ const Footer = () => (
             Institutional-grade investment holding and advisory office backing the infrastructure of real economies globally.
           </p>
         </div>
-        
+
         <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-16">
           <div>
             <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#C5A059] mb-8">Navigation</h4>
@@ -111,7 +162,7 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      
+
       <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.3em] text-blue-100/40 font-bold">
         <p>© 2026 Stella's Son Family Office. All Rights Reserved.</p>
         <div className="flex space-x-12 mt-8 md:mt-0">
@@ -127,7 +178,7 @@ const Footer = () => (
 
 const HomePage = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       {/* Hero Section */}
@@ -139,28 +190,53 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-[#F8FAFC]/70 backdrop-blur-[2px]"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full pt-20">
-          <Badge>Institutional Holding & Advisory</Badge>
-          <h1 className="text-6xl md:text-9xl font-bold text-[#0F172A] leading-[0.9] mb-8 tracking-tighter">
-            Architecting <br/>
-            <span className="text-[#C5A059] italic relative">Real Value</span>
+          <Badge>The Investment Holding & Advisory Office of Edmund Olotu</Badge>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-[#0F172A] leading-[0.95] mb-8 tracking-tight">
+            Operator-Led Capital<br />
+            <span className="text-[#C5A059] italic">for Builders of Real Economies</span>
           </h1>
-          <p className="text-xl md:text-2xl text-[#64748B] mb-12 max-w-3xl leading-relaxed font-light">
-            Providing operator-led capital and institutional-grade advisory for builders in <span className="text-[#0F172A] font-semibold">Energy, Fintech,</span> and <span className="text-[#0F172A] font-semibold">Agribusiness</span>.
+          <p className="text-lg md:text-xl text-[#64748B] mb-12 max-w-2xl leading-relaxed font-light">
+            Backing exceptional founders across <span className="text-[#0F172A] font-semibold">energy, fintech, agribusiness, and technology</span> with capital, operational expertise, and a principal who answers the phone.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6">
-            <PrimaryButton className="px-12" onClick={() => window.location.hash = '#contact'}>Get in Touch</PrimaryButton>
-            <SecondaryButton className="px-12" onClick={() => window.location.hash = '#portfolio'}>Our Portfolio</SecondaryButton>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <PrimaryButton className="px-10" onClick={() => window.location.hash = '#contact'}>Submit a Deal →</PrimaryButton>
+            <SecondaryButton className="px-10" onClick={() => window.location.hash = '#portfolio'}>Explore Portfolio</SecondaryButton>
+          </div>
+          {/* Trust Signals */}
+          <div className="mt-16 flex flex-wrap gap-x-8 gap-y-4 text-sm">
+            <div className="flex items-center gap-2">
+              <span className="text-[#C5A059] font-bold">15+</span>
+              <span className="text-[#64748B]">Portfolio Companies</span>
+            </div>
+            <div className="hidden sm:block w-px h-5 bg-gray-300"></div>
+            <div className="flex items-center gap-2">
+              <span className="text-[#C5A059] font-bold">4</span>
+              <span className="text-[#64748B]">Continents</span>
+            </div>
+            <div className="hidden sm:block w-px h-5 bg-gray-300"></div>
+            <div className="text-[#64748B]">
+              <span className="text-[#0F172A] font-medium">Energy</span> · <span className="text-[#0F172A] font-medium">Fintech</span> · <span className="text-[#0F172A] font-medium">Agribusiness</span> · <span className="text-[#0F172A] font-medium">Technology</span>
+            </div>
           </div>
         </div>
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 8, 0] }}
+          transition={{ delay: 2, duration: 1.5, repeat: Infinity }}
+        >
+          <ChevronDown className="w-8 h-8 text-[#64748B]" />
+        </motion.div>
       </header>
 
       {/* Trust Bar */}
       <div className="bg-[#0F172A] py-16 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
           {[{ label: 'Asset Classes', val: 'Alternative', icon: <Zap className="w-5 h-5 text-[#C5A059]" /> },
-            { label: 'Operations', val: 'Multi-Sector', icon: <Building2 className="w-5 h-5 text-[#C5A059]" /> },
-            { label: 'Geographies', val: 'Global', icon: <Globe className="w-5 h-5 text-[#C5A059]" /> },
-            { label: 'Approach', val: 'Operator-Led', icon: <Sprout className="w-5 h-5 text-[#C5A059]" /> }].map((stat, i) => (
+          { label: 'Operations', val: 'Multi-Sector', icon: <Building2 className="w-5 h-5 text-[#C5A059]" /> },
+          { label: 'Geographies', val: 'Global', icon: <Globe className="w-5 h-5 text-[#C5A059]" /> },
+          { label: 'Approach', val: 'Operator-Led', icon: <Sprout className="w-5 h-5 text-[#C5A059]" /> }].map((stat, i) => (
             <div key={i} className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="mb-4">{stat.icon}</div>
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-bold mb-2">{stat.label}</span>
@@ -170,17 +246,61 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Preview Sections */}
-      <SectionContainer>
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <Badge>Strategic Insight</Badge>
-            <SectionTitle>Beyond Passive Allocation.</SectionTitle>
-            <p className="text-lg text-[#64748B] leading-relaxed mb-8">We bridge the gap between institutional capital and operational execution. Our portfolio benefits from the clarity of a dedicated family office and the muscle of a growth-stage operator.</p>
-            <SecondaryButton onClick={() => window.location.hash = '#thesis'}>Read Our Thesis</SecondaryButton>
+      {/* Positioning Statement Section */}
+      <SectionContainer bgColor="bg-[#F8FAFC]">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="w-32 h-px bg-[#C5A059]/30 mx-auto mb-12"></div>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-8 heading-serif">
+            Not a Passive Allocator.<br />
+            <span className="text-[#C5A059]">An Active Builder.</span>
+          </h2>
+          <p className="text-lg md:text-xl text-[#64748B] leading-relaxed max-w-3xl mx-auto">
+            Most family offices write checks and wait. SSFO operates differently. We take concentrated positions in businesses we understand deeply—then roll up our sleeves. Our portfolio companies gain access to fractional executive support, M&A capabilities, and strategic guidance typically reserved for firms ten times their size.
+          </p>
+          <p className="text-lg text-[#0F172A] font-medium mt-8">
+            Abu Dhabi headquarters. Portfolio spanning Africa, the US, and beyond. One principal making decisions.
+          </p>
+        </div>
+      </SectionContainer>
+
+      {/* Edmund Olotu Section */}
+      <SectionContainer id="about">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="order-2 lg:order-1">
+            <Badge>The Principal</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-6 heading-serif">Edmund Olotu</h2>
+            <div className="space-y-6 text-lg text-[#64748B] leading-relaxed">
+              <p>
+                Edmund Olotu founded SSFO to do what most institutional investors won't—stay close to the work.
+              </p>
+              <p>
+                With operating experience across energy, finance, and technology, Edmund takes a hands-on approach to every significant investment. No investment committee delays. No junior associates running the relationship. Direct access to the decision-maker.
+              </p>
+            </div>
+            <blockquote className="border-l-4 border-[#C5A059] pl-6 my-8">
+              <p className="text-xl text-[#0F172A] italic heading-serif">
+                "I back founders I'd want to build alongside—then I actually do."
+              </p>
+            </blockquote>
+            <a
+              href="https://linkedin.com/in/edmundolotu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[#0F172A] font-semibold hover:text-[#C5A059] transition-colors"
+            >
+              <Linkedin className="w-5 h-5" />
+              Connect on LinkedIn →
+            </a>
           </div>
-          <div className="relative">
-            <img src="https://images.unsplash.com/photo-1573164060897-425941c30241?auto=format&fit=crop&w=800&q=80" alt="Building" className="rounded shadow-2xl grayscale border-[12px] border-white" />
+          <div className="order-1 lg:order-2">
+            <div className="relative">
+              <img
+                src="/edmund-olotu-headshot.png"
+                alt="Edmund Olotu, Founder and Principal of SSFO"
+                className="aspect-[4/5] object-cover object-top rounded-lg shadow-2xl"
+              />
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 border-4 border-[#C5A059] rounded-lg -z-10"></div>
+            </div>
           </div>
         </div>
       </SectionContainer>
@@ -202,8 +322,8 @@ const PortfolioPage = () => {
           <SectionTitle>Our Strategic Investments</SectionTitle>
           <div className="flex flex-wrap gap-4 mt-8">
             {sectors.map(s => (
-              <button 
-                key={s} 
+              <button
+                key={s}
                 onClick={() => setFilter(s)}
                 className={`px-6 py-2 text-sm font-bold uppercase tracking-widest border transition-all ${filter === s ? 'bg-[#0F172A] text-white border-[#0F172A]' : 'bg-white text-[#64748B] border-gray-200 hover:border-[#C5A059]'}`}
               >
@@ -215,7 +335,7 @@ const PortfolioPage = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((item, i) => (
-            <motion.div 
+            <motion.div
               layout
               key={item.name}
               initial={{ opacity: 0, y: 20 }}
@@ -270,7 +390,7 @@ const ServicesPage = () => (
         ))}
       </div>
     </SectionContainer>
-    
+
     <SectionContainer bgColor="bg-[#0F172A]">
       <div className="grid lg:grid-cols-3 gap-12 text-center">
         {[
@@ -333,7 +453,7 @@ const ThesisPage = () => (
 
 const ContactPage = () => {
   const [submitted, setSubmitted] = useState(false);
-  
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 min-h-screen pb-24">
       <SectionContainer>
@@ -342,7 +462,7 @@ const ContactPage = () => {
             <Badge>Get in Touch</Badge>
             <SectionTitle>Initialize Contact.</SectionTitle>
             <p className="text-xl text-[#64748B] font-light mb-12">Whether you're a founder seeking capital or an institutional partner exploring synergies, we look forward to the conversation.</p>
-            
+
             <div className="space-y-12">
               <div className="flex items-center space-x-6">
                 <div className="w-14 h-14 bg-[#F8FAFC] rounded-full flex items-center justify-center text-[#C5A059]">
@@ -381,32 +501,47 @@ const ContactPage = () => {
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4">Submission Received</h3>
-                <p className="text-[#64748B]">We appreciate your inquiry. Our investment committee will review your submission and respond within 10 business days.</p>
+                <p className="text-[#64748B]">Thank you. We've received your inquiry and will respond within two weeks.</p>
                 <button onClick={() => setSubmitted(false)} className="mt-10 text-[#C5A059] font-bold hover:underline">New Inquiry</button>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-8">
+              <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div className="group">
-                    <label className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Name</label>
-                    <input required className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all" />
+                    <label htmlFor="name" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Your Name *</label>
+                    <input id="name" name="name" required className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all bg-transparent" />
                   </div>
                   <div className="group">
-                    <label className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Email</label>
-                    <input required type="email" className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all" />
+                    <label htmlFor="email" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Email Address *</label>
+                    <input id="email" name="email" required type="email" className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all bg-transparent" />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="group">
+                    <label htmlFor="company" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Company Name *</label>
+                    <input id="company" name="company" required className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all bg-transparent" />
+                  </div>
+                  <div className="group">
+                    <label htmlFor="website" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Website (Optional)</label>
+                    <input id="website" name="website" type="url" placeholder="https://" className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all bg-transparent" />
                   </div>
                 </div>
                 <div className="group">
-                  <label className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Context</label>
-                  <select className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all bg-transparent">
+                  <label htmlFor="context" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">What brings you to SSFO? *</label>
+                  <select id="context" name="context" required className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all bg-transparent">
                     {Object.values(InquiryType).map(v => <option key={v} value={v}>{v}</option>)}
                   </select>
                 </div>
                 <div className="group">
-                  <label className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Executive Brief</label>
-                  <textarea required rows={4} className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all resize-none" placeholder="Provide a summary of your inquiry..."></textarea>
+                  <label htmlFor="message" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2 group-focus-within:text-[#C5A059] transition-colors">Tell us more *</label>
+                  <textarea id="message" name="message" required rows={4} className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all resize-none bg-transparent" placeholder="Provide a summary of your inquiry..."></textarea>
                 </div>
-                <PrimaryButton type="submit" className="w-full py-5 text-sm">Send Inquiry</PrimaryButton>
+                <div className="group">
+                  <label htmlFor="deck" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2">Attach Deck (Optional)</label>
+                  <input id="deck" name="deck" type="file" accept=".pdf,.ppt,.pptx,.doc,.docx" className="w-full py-3 text-sm text-[#64748B] file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-[#0F172A] file:text-white hover:file:bg-[#1E293B] file:cursor-pointer" />
+                </div>
+                <PrimaryButton type="submit" className="w-full py-5 text-sm">Send Message</PrimaryButton>
+                <p className="text-xs text-[#64748B] text-center">Your information stays confidential. We don't share data with third parties.</p>
               </form>
             )}
           </div>
@@ -441,7 +576,7 @@ export default function App() {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <Navbar currentPage={currentPage} />
-      
+
       <main className="grow">
         <AnimatePresence mode="wait">
           {currentPage === 'home' && <HomePage key="home" />}

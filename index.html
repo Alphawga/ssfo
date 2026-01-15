@@ -4,7 +4,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSFO | Stella's Son Family Office</title>
+  <title>SSFO | Family Office & Growth Equity | Abu Dhabi</title>
+  <meta name="description"
+    content="Stella's Son Family Office. Operator-led capital for founders building across energy, fintech, agribusiness, and technology. Abu Dhabi HQ, global portfolio." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ssfo.ae/" />
+  <meta property="og:title" content="SSFO | Family Office & Growth Equity | Abu Dhabi" />
+  <meta property="og:description"
+    content="Operator-led capital for founders building across energy, fintech, agribusiness, and technology." />
+  <meta property="og:image" content="/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SSFO | Family Office & Growth Equity | Abu Dhabi" />
+  <meta name="twitter:description"
+    content="Operator-led capital for founders building across energy, fintech, agribusiness, and technology." />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#0F172A" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,9 +76,34 @@
   }
 }
 </script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Stella's Son Family Office",
+    "alternateName": "SSFO",
+    "url": "https://ssfo.ae",
+    "description": "Abu Dhabi-based family office providing growth equity and operational support to companies across energy, fintech, agribusiness, and technology.",
+    "founder": {
+      "@type": "Person",
+      "name": "Edmund Olotu"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Abu Dhabi",
+      "addressCountry": "AE"
+    }
+  }
+  </script>
 </head>
 
 <body class="bg-[#ffffff] text-[#1a202c]">
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#0F172A] focus:text-white focus:px-4 focus:py-2">Skip
+    to main content</a>
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
