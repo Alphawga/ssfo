@@ -12,17 +12,17 @@ export const COLORS = {
 };
 
 export const PORTFOLIO_DATA: PortfolioItem[] = [
-  { name: 'Davidson Oil Tools LTD', description: 'Snubbing and downhole tools & equipment leasing', sector: 'Energy & Industrial Services' },
-  { name: 'Davidson Oil and Gas', description: 'Oil servicing and industrial gas manufacturing', sector: 'Energy & Industrial Services' },
-  { name: 'Cray Finance', description: 'African payment rails orchestration', sector: 'Fintech' },
-  { name: 'FuelGap LLC', description: 'US-based gas station lending platform', sector: 'Fintech · USA' },
-  { name: 'Multitrex PLC', description: "West Africa's largest cocoa processor · Publicly listed", sector: 'Agribusiness' },
-  { name: 'Kyshi', description: 'Merchant of Record infrastructure', sector: 'Fintech' },
-  { name: 'Mepe Farms, Ghana', description: 'Integrated farms and eco-resort hospitality', sector: 'Agribusiness · Hospitality' },
-  { name: 'Grey Matter Social Space', description: 'Hospitality venue operations', sector: 'Hospitality' },
-  { name: 'Varsani Interiors', description: 'Real estate holdings', sector: 'Real Estate' },
-  { name: 'Blocbanc Inc', description: 'Digital asset infrastructure', sector: 'Fintech · USA' },
-  { name: 'ATFA', description: 'Art investment and creative technology', sector: 'Alternative Assets' },
+  { name: 'Davidson Oil Tools LTD', description: 'Snubbing and downhole tools & equipment leasing', sector: 'Energy & Industrial Services', website: 'https://davidsonoiltools.com' },
+  { name: 'Davidson Oil and Gas', description: 'Oil servicing and industrial gas manufacturing', sector: 'Energy & Industrial Services', website: 'https://davidsonoilandgas.com' },
+  { name: 'Cray Finance', description: 'African payment rails orchestration', sector: 'Fintech', website: 'https://crayfinance.com' },
+  { name: 'FuelGap LLC', description: 'US-based gas station lending platform', sector: 'Fintech · USA', website: 'https://fuelgap.com' },
+  { name: 'Multitrex PLC', description: "West Africa's largest cocoa processor · Publicly listed", sector: 'Agribusiness', website: 'https://multitrex.com' },
+  { name: 'Kyshi', description: 'Merchant of Record infrastructure', sector: 'Fintech', website: 'https://kyshi.co' },
+  { name: 'Mepe Farms, Ghana', description: 'Integrated farms and eco-resort hospitality', sector: 'Agribusiness · Hospitality', website: 'https://mepefarms.com' },
+  { name: 'Grey Matter Social Space', description: 'Hospitality venue operations', sector: 'Hospitality', website: 'https://greymatterspace.com' },
+  { name: 'Varsani Interiors', description: 'Real estate holdings', sector: 'Real Estate', website: 'https://varsaniinteriors.com' },
+  { name: 'Blocbanc Inc', description: 'Digital asset infrastructure', sector: 'Fintech · USA', website: 'https://blocbanc.com' },
+  { name: 'ATFA', description: 'Art investment and creative technology', sector: 'Alternative Assets', website: 'https://atfa.io' },
 ];
 
 export const SERVICES_DATA: ServiceItem[] = [

@@ -6,6 +6,7 @@ export interface PortfolioItem {
   sector: string;
   location?: string;
   logoInitial?: string;
+  website?: string;
 }
 
 export interface ServiceItem {

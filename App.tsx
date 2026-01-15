@@ -706,9 +706,20 @@ const PortfolioPage = () => {
               <span className="text-[10px] text-[#C5A059] font-bold uppercase tracking-widest mb-4 block">{item.sector}</span>
               <h3 className="text-2xl font-bold text-[#0F172A] mb-4 heading-serif">{item.name}</h3>
               <p className="text-sm text-[#64748B] leading-relaxed mb-8">{item.description}</p>
-              <div className="flex items-center text-[#0F172A] font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                Detail View <ArrowRight className="w-4 h-4 ml-2" />
-              </div>
+              {item.website ? (
+                <a
+                  href={item.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-[#0F172A] font-bold text-xs uppercase tracking-widest hover:text-[#C5A059] transition-colors"
+                >
+                  Visit Website <ExternalLink className="w-4 h-4 ml-2" />
+                </a>
+              ) : (
+                <div className="flex items-center text-[#0F172A] font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  Detail View <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
