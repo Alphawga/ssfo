@@ -41,46 +41,54 @@ const Navbar = ({ currentPage }: { currentPage: string }) => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || currentPage !== 'home' ? 'glass-nav shadow-lg py-4' : 'bg-transparent py-8'}`}
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${isScrolled || currentPage !== 'home'
+          ? 'top-4 px-4 md:px-8'
+          : 'top-0 px-0'
+          }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => window.location.hash = ''}>
-            <div className="w-12 h-12 bg-[#0F172A] flex items-center justify-center transition-transform group-hover:rotate-12">
-              <span className="text-[#C5A059] font-bold text-2xl italic heading-serif">S</span>
+        <div className={`mx-auto transition-all duration-500 ${isScrolled || currentPage !== 'home'
+          ? 'max-w-5xl glass-nav shadow-xl py-3 px-6 md:px-8 rounded-full'
+          : 'max-w-7xl bg-transparent py-8 px-6 md:px-12'
+          }`}>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => window.location.hash = ''}>
+              <div className="w-12 h-12 bg-[#0F172A] flex items-center justify-center transition-transform group-hover:rotate-12">
+                <span className="text-[#C5A059] font-bold text-2xl italic heading-serif">S</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-xl tracking-tighter text-[#0F172A]">SSFO</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#64748B] -mt-1 font-bold">Family Office</span>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-xl tracking-tighter text-[#0F172A]">SSFO</span>
-              <span className="text-[10px] uppercase tracking-widest text-[#64748B] -mt-1 font-bold">Family Office</span>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex space-x-10 items-center">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`text-sm font-semibold tracking-wide transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#C5A059] after:transition-all ${currentPage === link.href.slice(1)
+                    ? 'text-[#C5A059] after:w-full'
+                    : 'text-[#0F172A] hover:text-[#C5A059] after:w-0 hover:after:w-full'
+                    }`}
+                >
+                  {link.name}
+                </a>
+              ))}
+              <PrimaryButton className="py-2.5 px-6 text-xs uppercase tracking-widest" onClick={() => window.location.hash = '#contact'}>
+                Submit Deal
+              </PrimaryButton>
             </div>
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-10 items-center">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-semibold tracking-wide transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-[#C5A059] after:transition-all ${currentPage === link.href.slice(1)
-                  ? 'text-[#C5A059] after:w-full'
-                  : 'text-[#0F172A] hover:text-[#C5A059] after:w-0 hover:after:w-full'
-                  }`}
-              >
-                {link.name}
-              </a>
-            ))}
-            <PrimaryButton className="py-2.5 px-6 text-xs uppercase tracking-widest" onClick={() => window.location.hash = '#contact'}>
-              Submit Deal
-            </PrimaryButton>
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-[#0F172A] hover:text-[#C5A059] transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-[#0F172A] hover:text-[#C5A059] transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
       </motion.nav>
 
@@ -119,6 +127,306 @@ const Navbar = ({ currentPage }: { currentPage: string }) => {
   );
 };
 
+// --- Animated Counter Component ---
+const AnimatedCounter = ({ value, suffix = '', prefix = '' }: { value: number; suffix?: string; prefix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          let start = 0;
+          const duration = 2000;
+          const startTime = Date.now();
+          const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(easeOut * value));
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          animate();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value, hasAnimated]);
+
+  return <span ref={ref}>{prefix}{count}{suffix}</span>;
+};
+
+// --- Investment Thesis Slider ---
+const investmentThesisPillars = [
+  {
+    icon: <Users2 className="w-8 h-8" />,
+    title: 'Operator-Led',
+    description: 'Direct involvement from a principal with operating experience across energy, finance, and technology.'
+  },
+  {
+    icon: <BarChart3 className="w-8 h-8" />,
+    title: 'Concentrated Positions',
+    description: 'We take meaningful stakes in a focused number of businesses we understand deeply.'
+  },
+  {
+    icon: <ShieldCheck className="w-8 h-8" />,
+    title: 'Long-Term Commitment',
+    description: 'Patient capital with no fund timeline pressure. We build for decades, not quarters.'
+  },
+  {
+    icon: <Globe className="w-8 h-8" />,
+    title: 'Global Reach',
+    description: 'Abu Dhabi headquarters with portfolio companies across Africa, the US, and beyond.'
+  },
+  {
+    icon: <Building2 className="w-8 h-8" />,
+    title: 'Sector Expertise',
+    description: 'Deep knowledge in energy, fintech infrastructure, agribusiness, and technology.'
+  }
+];
+
+const InvestmentThesisSlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const cardsPerView = 3;
+  const maxIndex = Math.max(0, investmentThesisPillars.length - cardsPerView);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (direction === 'left' && currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    } else if (direction === 'right' && currentIndex < maxIndex) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  return (
+    <div className="relative">
+      {/* Header with Arrows */}
+      <div className="flex justify-between items-end mb-12">
+        <div>
+          <Badge>Our Approach</Badge>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] heading-serif mt-4">
+            Investment Philosophy
+          </h2>
+        </div>
+        <div className="flex gap-3">
+          <button
+            onClick={() => scroll('left')}
+            disabled={currentIndex === 0}
+            className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all ${currentIndex === 0
+              ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+              : 'border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white'
+              }`}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            disabled={currentIndex >= maxIndex}
+            className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all ${currentIndex >= maxIndex
+              ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+              : 'border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white'
+              }`}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Cards Slider */}
+      <div className="overflow-hidden">
+        <motion.div
+          ref={sliderRef}
+          className="flex gap-6"
+          animate={{ x: `-${currentIndex * (100 / cardsPerView + 2)}%` }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+        >
+          {investmentThesisPillars.map((pillar, index) => (
+            <motion.div
+              key={index}
+              className="min-w-[calc(100%-1rem)] sm:min-w-[calc(50%-1rem)] lg:min-w-[calc(33.333%-1rem)] bg-[#F1F5F9] rounded-3xl p-8 group hover:bg-[#0F172A] transition-all duration-500"
+              whileHover={{ y: -8 }}
+            >
+              <div className="text-[#C5A059] mb-6 group-hover:text-[#C5A059]">
+                {pillar.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-[#0F172A] mb-4 group-hover:text-white transition-colors heading-serif">
+                {pillar.title}
+              </h3>
+              <p className="text-[#64748B] leading-relaxed group-hover:text-blue-100/70 transition-colors">
+                {pillar.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Progress Dots */}
+      <div className="flex justify-center gap-2 mt-8">
+        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentIndex(i)}
+            className={`h-2 rounded-full transition-all ${i === currentIndex ? 'w-8 bg-[#C5A059]' : 'w-2 bg-gray-300 hover:bg-gray-400'
+              }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// --- Insights/News Carousel ---
+const insightsData = [
+  {
+    category: 'DEAL ANNOUNCEMENT',
+    title: 'SSFO Leads Series B in West African Fintech Platform',
+    date: 'January 2026',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'
+  },
+  {
+    category: 'PORTFOLIO UPDATE',
+    title: 'Energy Infrastructure Investment Expands to Three New Markets',
+    date: 'December 2025',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop'
+  },
+  {
+    category: 'THOUGHT LEADERSHIP',
+    title: 'Building for Real Economies: The Operator-Led Investment Model',
+    date: 'November 2025',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop'
+  },
+  {
+    category: 'PARTNERSHIP',
+    title: 'Strategic Alliance with Leading Abu Dhabi Investment Authority',
+    date: 'October 2025',
+    image: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&h=400&fit=crop'
+  }
+];
+
+const InsightsCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const cardsPerView = 3;
+  const maxIndex = Math.max(0, insightsData.length - cardsPerView);
+
+  return (
+    <div>
+      {/* Header with Arrows */}
+      <div className="flex justify-between items-end mb-12">
+        <div>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] heading-serif">
+            Insights & Updates
+          </h2>
+        </div>
+        <div className="flex gap-3">
+          <button
+            onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
+            disabled={currentIndex === 0}
+            className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all ${currentIndex === 0
+              ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+              : 'border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white'
+              }`}
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => setCurrentIndex(Math.min(maxIndex, currentIndex + 1))}
+            disabled={currentIndex >= maxIndex}
+            className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all ${currentIndex >= maxIndex
+              ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+              : 'border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white'
+              }`}
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* Cards */}
+      <div className="overflow-hidden">
+        <motion.div
+          className="flex gap-6"
+          animate={{ x: `-${currentIndex * (100 / cardsPerView + 2)}%` }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+        >
+          {insightsData.map((item, index) => (
+            <motion.article
+              key={index}
+              className="min-w-[calc(100%-1rem)] sm:min-w-[calc(50%-1rem)] lg:min-w-[calc(33.333%-1rem)] group cursor-pointer"
+              whileHover={{ y: -4 }}
+            >
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">
+                {item.category}
+              </span>
+              <h3 className="text-xl font-bold text-[#0F172A] mt-2 mb-2 group-hover:text-[#C5A059] transition-colors leading-tight">
+                {item.title}
+              </h3>
+              <span className="text-sm text-[#64748B]">{item.date}</span>
+            </motion.article>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+// --- Scroll Reveal Wrapper ---
+const ScrollReveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.7, delay, ease: 'easeOut' }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+// --- Partner Logos Section ---
+const partnerLogos = [
+  { name: 'Abu Dhabi Investment Authority', initials: 'ADIA' },
+  { name: 'First Bank Nigeria', initials: 'FBN' },
+  { name: 'African Development Bank', initials: 'AfDB' },
+  { name: 'Goldman Sachs', initials: 'GS' },
+  { name: 'Mastercard Foundation', initials: 'MCF' },
+  { name: 'Pan-African Capital', initials: 'PAC' }
+];
+
+const PartnerLogos = () => (
+  <div className="py-16 bg-white border-y border-gray-100">
+    <div className="max-w-7xl mx-auto px-6">
+      <p className="text-center text-[10px] uppercase tracking-[0.3em] text-[#64748B] font-bold mb-10">
+        Trusted Partners & Co-Investors
+      </p>
+      <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+        {partnerLogos.map((partner, index) => (
+          <motion.div
+            key={index}
+            className="group cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="w-24 h-16 md:w-32 md:h-20 flex items-center justify-center bg-[#F8FAFC] rounded-lg border border-gray-100 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+              <span className="text-xl md:text-2xl font-bold text-[#0F172A] heading-serif">{partner.initials}</span>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
 
 const Footer = () => (
   <footer className="bg-[#0F172A] text-white pt-24 pb-12 px-6 md:px-12 lg:px-24">
@@ -263,6 +571,54 @@ const HomePage = () => {
         </div>
       </SectionContainer>
 
+      {/* Investment Philosophy Slider */}
+      <SectionContainer id="thesis">
+        <ScrollReveal>
+          <InvestmentThesisSlider />
+        </ScrollReveal>
+      </SectionContainer>
+
+      {/* Animated Stats Section */}
+      <div className="bg-[#0F172A] py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+              <div>
+                <div className="text-5xl md:text-6xl font-bold text-white heading-serif mb-2">
+                  <AnimatedCounter value={15} suffix="+" />
+                </div>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Portfolio Companies</span>
+              </div>
+              <div>
+                <div className="text-5xl md:text-6xl font-bold text-white heading-serif mb-2">
+                  <AnimatedCounter value={4} />
+                </div>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Continents</span>
+              </div>
+              <div>
+                <div className="text-5xl md:text-6xl font-bold text-white heading-serif mb-2">
+                  <AnimatedCounter value={10} suffix="+" />
+                </div>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Years Experience</span>
+              </div>
+              <div>
+                <div className="text-5xl md:text-6xl font-bold text-white heading-serif mb-2">
+                  $<AnimatedCounter value={100} suffix="M+" />
+                </div>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Capital Deployed</span>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* Insights & Updates Carousel */}
+      <SectionContainer bgColor="bg-[#F8FAFC]">
+        <ScrollReveal>
+          <InsightsCarousel />
+        </ScrollReveal>
+      </SectionContainer>
+
       {/* Edmund Olotu Section */}
       <SectionContainer id="about">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -304,6 +660,9 @@ const HomePage = () => {
           </div>
         </div>
       </SectionContainer>
+
+      {/* Partner Logos */}
+      <PartnerLogos />
     </motion.div>
   );
 };
