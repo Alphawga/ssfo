@@ -13,6 +13,7 @@ export interface ServiceItem {
   title: string;
   description: string;
   icon: React.ReactNode;
+  bulletPoints: string[];
 }
 
 export interface FAQItem {

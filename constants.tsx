@@ -34,6 +34,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
+    bulletPoints: ['Cash Flow Management', 'Financial Reporting', 'Fundraising Support'],
   },
   {
     title: 'Corporate Finance',
@@ -43,6 +44,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
+    bulletPoints: ['Capital Structuring', 'Debt Advisory', 'Treasury Optimization'],
   },
   {
     title: 'M&A Advisory',
@@ -52,6 +54,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
       </svg>
     ),
+    bulletPoints: ['Target Identification', 'Due Diligence', 'Deal Structuring'],
   },
   {
     title: 'Strategy & Growth',
@@ -61,6 +64,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     ),
+    bulletPoints: ['Market Entry', 'Competitive Positioning', 'Business Model Refinement'],
   },
   {
     title: 'Digital Systems (CDO)',
@@ -70,6 +74,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
+    bulletPoints: ['Digital Transformation', 'Product Strategy', 'Technology Roadmaps'],
   },
   {
     title: 'Institutional Branding',
@@ -79,6 +84,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.167H3.3a1.598 1.598 0 01-1.558-1.812l.39-2.113a1.598 1.598 0 011.558-1.322h1.637l2.147-6.167a1.76 1.76 0 013.417.592zM15.817 3.45a19.09 19.09 0 013.183 1.517 18.914 18.914 0 013.181 2.368 19.145 19.145 0 010 10.61c-1.026 1.556-2.094 3.012-3.181 4.368a19.09 19.09 0 01-3.183 3.517" />
       </svg>
     ),
+    bulletPoints: ['Brand Positioning', 'Messaging Strategy', 'Growth Marketing'],
   },
 ];
 
