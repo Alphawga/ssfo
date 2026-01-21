@@ -143,10 +143,10 @@ const HomePage = () => {
                         <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-6 heading-serif">Edmund Olotu</h2>
                         <div className="space-y-6 text-lg text-[#64748B] leading-relaxed">
                             <p>
-                                Edmund Olotu founded SSFO to do what most institutional investors won't—stay close to the work.
+                                Serial entrepreneur and investor who has founded and financed technology companies across <span className="text-[#0F172A] font-semibold">Nigeria, the United States, and the United Kingdom</span>.
                             </p>
                             <p>
-                                With operating experience across energy, finance, and technology, Edmund takes a hands-on approach to every significant investment. No investment committee delays. No junior associates running the relationship. Direct access to the decision-maker.
+                                His track record includes co-founding <span className="text-[#0F172A] font-semibold">Novira Therapeutics</span> (acquired by J&J for <span className="text-[#C5A059] font-bold">$600M</span>), founding <span className="text-[#0F172A] font-semibold">Generate4Schools</span> which pioneered merchant processing fees for education, and building <span className="text-[#0F172A] font-semibold">TechAdvance/Blocbanc</span>—recognized by the London Stock Exchange as one of "100 Companies to Inspire Africa."
                             </p>
                         </div>
                         <blockquote className="border-l-4 border-[#C5A059] pl-6 my-8">
@@ -154,20 +154,28 @@ const HomePage = () => {
                                 "I back founders I'd want to build alongside—then I actually do."
                             </p>
                         </blockquote>
-                        <a
-                            href="https://linkedin.com/in/edmundolotu"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-[#0F172A] font-semibold hover:text-[#C5A059] transition-colors"
-                        >
-                            <Linkedin className="w-5 h-5" />
-                            Connect on LinkedIn →
-                        </a>
+                        <div className="flex flex-wrap gap-4">
+                            <a
+                                href="/about"
+                                className="inline-flex items-center gap-2 bg-[#0F172A] text-white px-6 py-3 font-semibold hover:bg-[#1E293B] transition-colors"
+                            >
+                                Read Full Bio →
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/edmundolotu/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-[#0F172A] font-semibold hover:text-[#C5A059] transition-colors border border-[#0F172A] px-6 py-3"
+                            >
+                                <Linkedin className="w-5 h-5" />
+                                LinkedIn
+                            </a>
+                        </div>
                     </div>
                     <div className="order-1 lg:order-2">
                         <div className="relative">
                             <img
-                                src="/edmund-olotu-headshot.png"
+                                src="/edmund-olotu-pic.jpeg"
                                 alt="Edmund Olotu, Founder and Principal of SSFO"
                                 className="aspect-[4/5] object-cover object-top rounded-lg shadow-2xl"
                             />

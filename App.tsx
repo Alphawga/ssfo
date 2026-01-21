@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Navbar, Footer } from './components';
 
 // Pages
-import { HomePage, PortfolioPage, ServicesPage, ThesisPage, ContactPage } from './pages';
+import { HomePage, PortfolioPage, ServicesPage, ThesisPage, ContactPage, AboutPage } from './pages';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -13,7 +13,7 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
-      if (['portfolio', 'services', 'thesis', 'contact'].includes(hash)) {
+      if (['portfolio', 'services', 'thesis', 'contact', 'about'].includes(hash)) {
         setCurrentPage(hash);
       } else {
         setCurrentPage('home');
@@ -37,6 +37,7 @@ export default function App() {
         {currentPage === 'services' && <ServicesPage key="services" />}
         {currentPage === 'thesis' && <ThesisPage key="thesis" />}
         {currentPage === 'contact' && <ContactPage key="contact" />}
+        {currentPage === 'about' && <AboutPage key="about" />}
       </AnimatePresence>
 
       <Footer />

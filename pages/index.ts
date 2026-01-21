@@ -3,3 +3,4 @@ export { default as PortfolioPage } from './PortfolioPage';
 export { default as ServicesPage } from './ServicesPage';
 export { default as ThesisPage } from './ThesisPage';
 export { default as ContactPage } from './ContactPage';
+export { default as AboutPage } from './AboutPage';
