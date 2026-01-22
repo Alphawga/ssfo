@@ -12,17 +12,37 @@ export const COLORS = {
 };
 
 export const PORTFOLIO_DATA: PortfolioItem[] = [
-  { name: 'Davidson Oil Tools LTD', description: 'Snubbing and downhole tools & equipment leasing', sector: 'Energy & Industrial Services', website: 'https://davidsonoiltools.com' },
-  { name: 'Davidson Oil and Gas', description: 'Oil servicing and industrial gas manufacturing', sector: 'Energy & Industrial Services', website: 'https://davidsonoilandgas.com' },
-  { name: 'Cray Finance', description: 'African payment rails orchestration', sector: 'Fintech', website: 'https://crayfinance.com' },
-  { name: 'FuelGap LLC', description: 'US-based gas station lending platform', sector: 'Fintech · USA', website: 'https://fuelgap.com' },
-  { name: 'Multitrex PLC', description: "West Africa's largest cocoa processor · Publicly listed", sector: 'Agribusiness', website: 'https://multitrex.com' },
-  { name: 'Kyshi', description: 'Merchant of Record infrastructure', sector: 'Fintech', website: 'https://kyshi.co' },
-  { name: 'Mepe Farms, Ghana', description: 'Integrated farms and eco-resort hospitality', sector: 'Agribusiness · Hospitality', website: 'https://mepefarms.com' },
-  { name: 'Grey Matter Social Space', description: 'Hospitality venue operations', sector: 'Hospitality', website: 'https://greymatterspace.com' },
-  { name: 'Varsani Interiors', description: 'Real estate holdings', sector: 'Real Estate', website: 'https://varsaniinteriors.com' },
-  { name: 'Blocbanc Inc', description: 'Digital asset infrastructure', sector: 'Fintech · USA', website: 'https://blocbanc.com' },
-  { name: 'ATFA', description: 'Art investment and creative technology', sector: 'Alternative Assets', website: 'https://atfa.io' },
+  // Significant Holdings
+  { name: 'Davidson Oil Tools LTD', description: 'Snubbing and downhole tools & equipment leasing', sector: 'Significant Holdings · Energy', website: 'https://davidsonoiltools.com' },
+  { name: 'Davidson Oil and Gas', description: 'Oil servicing and industrial gas manufacturing', sector: 'Significant Holdings · Energy', website: 'https://davidsonoilandgas.com' },
+  { name: 'Cray Finance', description: 'African payment rails orchestration', sector: 'Significant Holdings · Fintech', website: 'https://crayfinance.com' },
+  { name: 'FuelGap LLC', description: 'US-based gas station lending platform', sector: 'Significant Holdings · Fintech', website: 'https://fuelgap.com' },
+  { name: 'Kyshi', description: 'Merchant of Record infrastructure', sector: 'Significant Holdings · Fintech', website: 'https://kyshi.co' },
+  { name: 'Mepe Farms, Ghana', description: 'Integrated farms and eco-resort hospitality', sector: 'Significant Holdings · Agribusiness', website: 'https://mepefarms.com' },
+  { name: 'Grey Matter Social Space', description: 'Hospitality venue for technology founders', sector: 'Significant Holdings · Hospitality', website: 'https://greymatterspace.com' },
+  { name: 'Varsani Interiors', description: 'Real estate holdings', sector: 'Significant Holdings · Real Estate', website: 'https://varsaniinteriors.com' },
+  { name: 'Blocbanc Inc', description: 'Fintech infrastructure and BaaS', sector: 'Significant Holdings · Fintech', website: 'https://blocbanc.com' },
+  { name: 'Optimus (By Afrinvest) LTD', description: 'Investment management services', sector: 'Significant Holdings · Finance', website: '' },
+  { name: 'ATFA', description: 'Art/collectibles investment and creative technology', sector: 'Significant Holdings · Alternative Assets', website: 'https://athingforart.com' },
+  { name: 'SSFO Commodities Trading', description: 'Commodities trading operations', sector: 'Significant Holdings · Commodities', website: '' },
+
+  // Publicly Listed Holdings
+  { name: 'Multitrex PLC', description: "West Africa's largest cocoa processor", sector: 'Publicly Listed · Agribusiness', website: 'https://multitrex.com' },
+  { name: 'DeapCap (CMFC)', description: 'Publicly traded investment vehicle', sector: 'Publicly Listed · Finance', website: '' },
+
+  // Angel/Venture Holdings
+  { name: 'Mercury Bank', description: 'Digital business banking', sector: 'Angel/Venture · Fintech', website: 'https://mercury.com' },
+  { name: 'Token Metrics LLC', description: 'Crypto analytics & insights', sector: 'Angel/Venture · Fintech', website: 'https://tokenmetrics.com' },
+  { name: 'SEN-Jam Pharmaceuticals', description: 'Biotech research and development', sector: 'Angel/Venture · Biotech', website: '' },
+  { name: 'Yummy Future', description: 'Food technology platform', sector: 'Angel/Venture · FoodTech', website: '' },
+  { name: 'Eliaz Therapeutics', description: 'Biotech therapeutics', sector: 'Angel/Venture · Biotech', website: '' },
+  { name: 'Bitnob', description: 'Bitcoin infrastructure', sector: 'Angel/Venture · Fintech', website: 'https://bitnob.com' },
+  { name: 'Grey Finance', description: 'International bank accounts and card issuing', sector: 'Angel/Venture · Fintech', website: 'https://grey.co' },
+  { name: 'Pyn AI', description: 'AI powered job search platform', sector: 'Angel/Venture · AI', website: '' },
+
+  // Investment Advisory
+  { name: 'VII Ventures', description: 'Middle East-based fund - GP & Senior Advisor. Portfolio: Palantir, DoorDash, SpaceX, Airbnb, Robinhood, Ripple, Plaid, and more', sector: 'Investment Advisory · VC', website: '' },
+  { name: 'Founders Syndicate', description: 'Angel investment syndicate', sector: 'Investment Advisory · Syndicate', website: '' },
 ];
 
 export const SERVICES_DATA: ServiceItem[] = [

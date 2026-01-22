@@ -35,9 +35,10 @@ const viiVenturesPortfolio = [
 
 // Grey Matter Image Slider Component
 const greyMatterImages = [
-    { src: '/grey-matter-1.jpg', alt: 'Grey Matter cuisine - Signature dish' },
-    { src: '/grey-matter-2.jpg', alt: 'Grey Matter cuisine - French toast with berries' },
-    { src: '/grey-matter-3.jpg', alt: 'Grey Matter cuisine - Breakfast spread' },
+    { src: '/grey-matter-logo.jpg', alt: 'Grey Matter Logo', objectPosition: 'center 30%' },
+    { src: '/grey-matter-1.jpg', alt: 'Grey Matter cuisine - Signature dish', objectPosition: 'center' },
+    { src: '/grey-matter-2.jpg', alt: 'Grey Matter cuisine - French toast with berries', objectPosition: 'center' },
+    { src: '/grey-matter-3.jpg', alt: 'Grey Matter cuisine - Breakfast spread', objectPosition: 'center' },
 ];
 
 const GreyMatterSlider = () => {
@@ -52,13 +53,19 @@ const GreyMatterSlider = () => {
 
     return (
         <div className="relative">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+            <a
+                href="https://www.instagram.com/greymatter.social/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative aspect-[4/3] rounded-xl overflow-hidden group"
+            >
                 {greyMatterImages.map((image, index) => (
                     <motion.img
                         key={index}
                         src={image.src}
                         alt={image.alt}
                         className="absolute inset-0 w-full h-full object-cover"
+                        style={{ objectPosition: image.objectPosition }}
                         initial={{ opacity: 0 }}
                         animate={{
                             opacity: index === currentIndex ? 1 : 0,
@@ -68,7 +75,13 @@ const GreyMatterSlider = () => {
                     />
                 ))}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            </div>
+                {/* Instagram icon overlay */}
+                <div className="absolute bottom-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+                    </svg>
+                </div>
+            </a>
             {/* Navigation Dots */}
             <div className="flex justify-center gap-2 mt-4">
                 {greyMatterImages.map((_, index) => (
@@ -76,8 +89,8 @@ const GreyMatterSlider = () => {
                         key={index}
                         onClick={() => setCurrentIndex(index)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                ? 'bg-[#C5A059] w-6'
-                                : 'bg-white/30 hover:bg-white/50'
+                            ? 'bg-[#C5A059] w-6'
+                            : 'bg-white/30 hover:bg-white/50'
                             }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
@@ -433,7 +446,12 @@ const AboutPage = () => {
                         </h2>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div className="group">
+                        <a
+                            href="https://www.glenfiddich.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block"
+                        >
                             <div className="relative aspect-square rounded-2xl overflow-hidden mb-4">
                                 <img
                                     src="/glenfiddich-ambassador.png"
@@ -442,9 +460,9 @@ const AboutPage = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-2 heading-serif">Whisky Connoisseur</h3>
-                            <p className="text-blue-100/60 text-sm">Glenfiddich Ambassador (2019)</p>
-                        </div>
+                            <h3 className="text-xl font-bold text-white mb-2 heading-serif group-hover:text-[#C5A059] transition-colors">Glenfiddich Ambassador</h3>
+                            <p className="text-blue-100/60 text-sm">2019</p>
+                        </a>
                         <div className="text-center flex flex-col items-center justify-center">
                             <div className="w-24 h-24 bg-[#C5A059]/20 rounded-full flex items-center justify-center mb-4">
                                 <span className="text-5xl">🤿</span>
@@ -452,24 +470,54 @@ const AboutPage = () => {
                             <h3 className="text-xl font-bold text-white mb-2 heading-serif">Deep Sea Diver</h3>
                             <p className="text-blue-100/60 text-sm">Certified diver exploring the depths</p>
                         </div>
-                        <div className="text-center flex flex-col items-center justify-center">
-                            <div className="w-24 h-24 bg-[#C5A059]/20 rounded-full flex items-center justify-center mb-4">
-                                <span className="text-5xl">🚗</span>
+                        <a
+                            href="https://youtu.be/Fn8_NdaibkQ?si=mPlQw6UDnG7buEGY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block"
+                        >
+                            <div className="relative aspect-square rounded-2xl overflow-hidden mb-4">
+                                <img
+                                    src="/vintage-car.jpg"
+                                    alt="Vintage Mercedes-Benz - Edmund Olotu's collection"
+                                    className="w-full h-full object-cover object-right group-hover:scale-105 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                <div className="absolute bottom-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 group-hover:bg-[#C5A059] transition-colors">
+                                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                                    </svg>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-2 heading-serif">Vintage Cars</h3>
-                            <p className="text-blue-100/60 text-sm">Collector and restorer of classic automobiles</p>
-                        </div>
-                        <div className="text-center flex flex-col items-center justify-center">
-                            <div className="w-24 h-24 bg-[#C5A059]/20 rounded-full flex items-center justify-center mb-4">
-                                <span className="text-5xl">🎨</span>
+                            <h3 className="text-xl font-bold text-white mb-2 heading-serif group-hover:text-[#C5A059] transition-colors">Vintage Cars</h3>
+                            <p className="text-blue-100/60 text-sm mb-2">Collector and restorer of classic automobiles</p>
+                            <span className="inline-flex items-center gap-1 text-[#C5A059] text-xs font-medium hover:underline">
+                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+                                </svg>
+                                @ancient_broom
+                            </span>
+                        </a>
+                        <a
+                            href="https://athingforart.com/our-collection/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block"
+                        >
+                            <div className="relative aspect-square rounded-2xl overflow-hidden mb-4">
+                                <img
+                                    src="/atfa-art.jpg"
+                                    alt="A Thing For Art - African Art Collection"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-2 heading-serif">Art Collector</h3>
-                            <p className="text-blue-100/60 text-sm">
-                                <a href="https://www.atfa.art" target="_blank" rel="noopener noreferrer" className="text-[#C5A059] hover:underline">
-                                    A Thing For Art (ATFA)
-                                </a>
-                            </p>
-                        </div>
+                            <h3 className="text-xl font-bold text-white mb-2 heading-serif group-hover:text-[#C5A059] transition-colors">Art Collector</h3>
+                            <p className="text-blue-100/60 text-sm mb-2">Investor-grade African art collection</p>
+                            <span className="text-[#C5A059] text-xs font-medium hover:underline">
+                                A Thing For Art (ATFA) →
+                            </span>
+                        </a>
                     </div>
 
                     {/* Grey Matter */}

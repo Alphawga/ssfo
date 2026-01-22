@@ -6,7 +6,12 @@ import { PORTFOLIO_DATA } from '../constants';
 
 const PortfolioPage = () => {
     const [filter, setFilter] = useState('All');
-    const sectors = ['All', ...new Set(PORTFOLIO_DATA.map(p => p.sector.split(' · ')[0]))];
+
+    // Extract main categories AND sub-categories
+    const mainCategories = PORTFOLIO_DATA.map(p => p.sector.split(' · ')[0]);
+    const subCategories = PORTFOLIO_DATA.map(p => p.sector.split(' · ')[1]).filter(Boolean);
+    const allCategories = [...new Set([...mainCategories, ...subCategories])];
+    const sectors = ['All', ...allCategories];
 
     const filtered = filter === 'All' ? PORTFOLIO_DATA : PORTFOLIO_DATA.filter(p => p.sector.includes(filter));
 
@@ -41,22 +46,22 @@ const PortfolioPage = () => {
                         >
                             <div className="absolute top-0 left-0 w-1 h-0 bg-[#C5A059] group-hover:h-full transition-all duration-500"></div>
                             <span className="text-[10px] text-[#C5A059] font-bold uppercase tracking-widest mb-4 block">{item.sector}</span>
-                            <h3 className="text-2xl font-bold text-[#0F172A] mb-4 heading-serif">{item.name}</h3>
-                            <p className="text-sm text-[#64748B] leading-relaxed mb-8">{item.description}</p>
-                            {item.website ? (
-                                <a
-                                    href={item.website}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center text-[#0F172A] font-bold text-xs uppercase tracking-widest hover:text-[#C5A059] transition-colors"
-                                >
-                                    Visit Website <ExternalLink className="w-4 h-4 ml-2" />
-                                </a>
+                            {item.name === 'Cray Finance' ? (
+                                <img src="/logos/cray-finance.png" alt="Cray Finance" className="h-10 mb-4" />
+                            ) : item.name === 'FuelGap LLC' ? (
+                                <img src="/logos/fuelgap.png" alt="FuelGap" className="h-10 mb-4" />
+                            ) : item.name === 'Kyshi' ? (
+                                <img src="/logos/kyshi.png" alt="Kyshi" className="h-10 mb-4" />
+                            ) : item.name === 'Grey Matter Social Space' ? (
+                                <img src="/logos/grey-matter.png" alt="Grey Matter" className="h-20 mb-4" />
+                            ) : item.name === 'Blocbanc Inc' ? (
+                                <img src="/logos/blocbanc.png" alt="Blocbanc" className="h-20 mb-4" />
+                            ) : item.name === 'ATFA' ? (
+                                <img src="/logos/atfa.png" alt="ATFA" className="h-10 mb-4" />
                             ) : (
-                                <div className="flex items-center text-[#0F172A] font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                                    Detail View <ArrowRight className="w-4 h-4 ml-2" />
-                                </div>
+                                <h3 className="text-2xl font-bold text-[#0F172A] mb-4 heading-serif">{item.name}</h3>
                             )}
+                            <p className="text-sm text-[#64748B] leading-relaxed">{item.description}</p>
                         </motion.div>
                     ))}
                 </div>

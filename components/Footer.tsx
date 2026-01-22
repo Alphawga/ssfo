@@ -28,9 +28,11 @@ const Footer = () => (
                     <div>
                         <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#C5A059] mb-8">Specialties</h4>
                         <ul className="space-y-6 text-sm font-semibold">
-                            <li className="text-blue-100/60">Energy & Logistics</li>
+                            <li className="text-blue-100/60">Biotech</li>
+                            <li className="text-blue-100/60">Commodities & Agribusiness</li>
+                            <li className="text-blue-100/60">Energy</li>
                             <li className="text-blue-100/60">Fintech Infrastructure</li>
-                            <li className="text-blue-100/60">Agribusiness Processing</li>
+                            <li className="text-blue-100/60">Hospitality & Real Estate</li>
                         </ul>
                     </div>
                     <div>
