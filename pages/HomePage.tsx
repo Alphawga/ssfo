@@ -5,7 +5,7 @@ import { SectionContainer, PrimaryButton, SecondaryButton, Badge } from '../comp
 import ScrollReveal from '../components/ScrollReveal';
 import AnimatedCounter from '../components/AnimatedCounter';
 import InvestmentThesisSlider from '../components/InvestmentThesisSlider';
-import PartnerLogos from '../components/PartnerLogos';
+
 
 const HomePage = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -184,9 +184,6 @@ const HomePage = () => {
                     </div>
                 </div>
             </SectionContainer>
-
-            {/* Partner Logos */}
-            <PartnerLogos />
         </motion.div>
     );
 };
