@@ -7,7 +7,7 @@ const ThesisPage = () => (
         <SectionContainer>
             <div className="max-w-4xl mx-auto">
                 <Badge>Our Thesis</Badge>
-                <SectionTitle>Capital is a Commodity. Operation is the Arbitrage.</SectionTitle>
+                <SectionTitle>Execution and operations are the arbitrage</SectionTitle>
                 <div className="prose prose-lg text-[#64748B] font-light leading-relaxed mt-12 space-y-8">
                     <p>
                         In today's global economy, capital is readily available but execution is scarce. Our core philosophy centers on the belief that the most significant value creation happens in the "hard" sectors of the real economy—infrastructure, logistics, and essential finance.

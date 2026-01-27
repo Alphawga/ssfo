@@ -120,13 +120,13 @@ const HomePage = () => {
                             </div>
                             <div>
                                 <div className="text-5xl md:text-6xl font-bold text-white heading-serif mb-2">
-                                    <AnimatedCounter value={10} suffix="+" />
+                                    <AnimatedCounter value={20} suffix="+" />
                                 </div>
                                 <span className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Years Experience</span>
                             </div>
                             <div>
                                 <div className="text-5xl md:text-6xl font-bold text-white heading-serif mb-2">
-                                    $<AnimatedCounter value={100} suffix="M+" />
+                                    $<AnimatedCounter value={4} suffix="BN" />
                                 </div>
                                 <span className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Capital Deployed</span>
                             </div>
@@ -156,7 +156,7 @@ const HomePage = () => {
                         </blockquote>
                         <div className="flex flex-wrap gap-4">
                             <a
-                                href="/about"
+                                href="#about"
                                 className="inline-flex items-center gap-2 bg-[#0F172A] text-white px-6 py-3 font-semibold hover:bg-[#1E293B] transition-colors"
                             >
                                 Read Full Bio →

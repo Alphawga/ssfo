@@ -100,6 +100,16 @@ const PortfolioPage = () => {
                                                     <img src="/logos/blocbanc.png" alt="Blocbanc" className="h-20 mb-4" />
                                                 ) : item.name === 'ATFA' ? (
                                                     <img src="/logos/atfa.png" alt="ATFA" className="h-10 mb-4" />
+                                                ) : item.name === 'Grey Finance' ? (
+                                                    <img src="/logos/grey-finance.png" alt="Grey Finance" className="h-10 mb-4" />
+                                                ) : item.name === 'Eliaz Therapeutics' ? (
+                                                    <img src="/logos/eliaz.png" alt="Eliaz Therapeutics" className="h-12 mb-4" />
+                                                ) : item.name === 'Bitnob' ? (
+                                                    <img src="/logos/bitnob.png" alt="Bitnob" className="h-10 mb-4" />
+                                                ) : item.name === 'Pyn AI' ? (
+                                                    <img src="/logos/pyn.jpg" alt="Pyn AI" className="h-10 mb-4" />
+                                                ) : item.name === 'Mercury Bank' ? (
+                                                    <img src="/logos/mercury.png" alt="Mercury Bank" className="h-10 mb-4" />
                                                 ) : (
                                                     <h3 className="text-2xl font-bold text-[#0F172A] mb-4 heading-serif">{item.name}</h3>
                                                 )}

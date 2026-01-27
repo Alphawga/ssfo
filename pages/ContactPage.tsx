@@ -57,27 +57,16 @@ const ContactPage = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#64748B]">Email Inquiry</h4>
-                                    <p className="text-xl font-bold text-[#0F172A] heading-serif">contact@ssfo.ae</p>
+                                    <p className="text-xl font-bold text-[#0F172A] heading-serif">contact@ssfocapital.com</p>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-6">
                                 <div className="w-14 h-14 bg-[#F8FAFC] rounded-full flex items-center justify-center text-[#C5A059]">
                                     <MapPin className="w-6 h-6" />
                                 </div>
-                                <div>
-                                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#64748B]">Regional Hub</h4>
-                                    <p className="text-xl font-bold text-[#0F172A] heading-serif">Abu Dhabi, UAE</p>
-                                </div>
+
                             </div>
-                            <div className="flex items-center space-x-6">
-                                <div className="w-14 h-14 bg-[#F8FAFC] rounded-full flex items-center justify-center text-[#C5A059]">
-                                    <Phone className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#64748B]">Direct Channel</h4>
-                                    <p className="text-xl font-bold text-[#0F172A] heading-serif">+971 (0) 2 XXX XXXX</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
