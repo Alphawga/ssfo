@@ -11,6 +11,45 @@ export const COLORS = {
   offWhite: '#F8FAFC',
 };
 
+export const INVESTMENT_CATEGORIES = [
+  {
+    title: 'Agribusiness & Foodtech',
+    description: 'We back businesses across the agricultural value chain—from farm operations and processing to technology-enabled solutions transforming how food is produced and distributed. Our focus is on ventures with real assets, strong cash flows, and the potential to strengthen food systems across emerging markets.'
+  },
+  {
+    title: 'AI',
+    description: 'We invest in artificial intelligence companies building practical solutions for enterprise and emerging market challenges. Our interest lies in AI applications that drive efficiency, unlock new capabilities, and create measurable impact across our core sectors.'
+  },
+  {
+    title: 'Alternative Assets',
+    description: 'We hold selective positions in non-traditional asset classes including art, vintage cars, and collectibles. These investments offer portfolio diversification and exposure to emerging stores of value beyond conventional markets.'
+  },
+  {
+    title: 'Biotech',
+    description: 'We back life sciences ventures developing solutions for healthcare challenges in underserved markets. Our focus is on companies with clear paths to commercialization and the potential to deliver both returns and meaningful health outcomes.'
+  },
+  {
+    title: 'Commodities',
+    description: 'We invest in businesses involved in the sourcing, trading, and processing of physical commodities. Our expertise spans soft commodities and industrial inputs, with a focus on established trade flows and operational excellence.'
+  },
+  {
+    title: 'Energy',
+    description: 'We have deep experience in oil services, equipment leasing, and industrial gas manufacturing across Africa and beyond. We understand the operational complexity and capital intensity required to build lasting businesses in this sector.'
+  },
+  {
+    title: 'Finance',
+    description: 'We back financial services companies building infrastructure for capital formation and deployment. Our interest spans corporate finance platforms, lending businesses, and tools that improve access to capital in growth markets.'
+  },
+  {
+    title: 'Fintech',
+    description: 'We invest in the rails that move money—cross-border payments, merchant infrastructure, and lending platforms serving emerging markets. Our portfolio includes companies building foundational financial technology across Africa and the United States.'
+  },
+  {
+    title: 'Hospitality & Real Estate',
+    description: 'We hold selective positions in hospitality venues, integrated resorts, and property assets that generate yield and strategic optionality. Our investments focus on locations and developments aligned with broader demographic and economic growth trends.'
+  }
+];
+
 export const PORTFOLIO_DATA: PortfolioItem[] = [
   // Significant Holdings
   { name: 'Davidson Oil Tools LTD', description: 'Snubbing and downhole tools & equipment leasing', sector: 'Significant Holdings · Energy', website: 'https://davidsonoiltools.com' },
