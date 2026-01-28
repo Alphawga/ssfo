@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, GraduationCap, Briefcase, Globe, Award, Building2, Layers, BookOpen } from 'lucide-react';
+import { Linkedin, GraduationCap, Briefcase, Globe, Award, Building2, Layers, BookOpen, Wallet } from 'lucide-react';
 import { SectionContainer, Badge } from '../components/UI';
 import ScrollReveal from '../components/ScrollReveal';
 
@@ -15,7 +15,7 @@ const portfolioInvestments = {
         { name: 'Kyshi UK', description: 'Merchant of Record infrastructure' },
     ],
     uae: [
-        { name: 'Cray Finance', description: 'Fintech (Lead Investor)' },
+        { name: 'Cray Finance', description: 'Pan-African payment rails orchestration company serving 13+ countries in Africa. Canadian MSB, IMTO, MFB, PSSP' },
     ],
     usa: [
         { name: 'Mercury Bank', description: 'Digital Business Banking' },
@@ -297,6 +297,28 @@ const AboutPage = () => {
                                     <span className="text-[#C5A059] font-bold text-sm">Pan-African</span>
                                 </div>
                                 <span className="text-blue-100/50 text-sm">Payment Orchestration</span>
+                            </div>
+                        </div>
+
+                        {/* Kyshi */}
+                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-14 h-14 bg-[#C5A059] rounded-xl flex items-center justify-center">
+                                    <Wallet className="w-7 h-7 text-[#0F172A]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-white heading-serif">Kyshi</h3>
+                                    <p className="text-[#C5A059] text-sm font-bold uppercase tracking-widest">Co-Founder</p>
+                                </div>
+                            </div>
+                            <p className="text-blue-100/70 leading-relaxed mb-6">
+                                Merchant of Record infrastructure enabling global businesses to accept local payments in Africa.
+                            </p>
+                            <div className="flex items-center gap-3">
+                                <div className="bg-[#C5A059]/20 px-4 py-2 rounded-lg">
+                                    <span className="text-[#C5A059] font-bold text-sm">Fintech</span>
+                                </div>
+                                <span className="text-blue-100/50 text-sm">Infrastructure</span>
                             </div>
                         </div>
                     </div>
