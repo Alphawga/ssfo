@@ -94,8 +94,8 @@ const PortfolioPage = () => {
                                         <img src="/logos/kyshi.png" alt="Kyshi" className="h-20 object-contain" />
                                     ) : item.name === 'Grey Matter Social Space' ? (
                                         <img src="/logos/grey-matter.png" alt="Grey Matter" className="h-24 object-contain" />
-                                    ) : item.name === 'Optimus (By Afrinvest) LTD' ? (
-                                        <img src="/logos/optimus.png" alt="Optimus" className="h-20 object-contain" />
+                                    ) : item.name === 'PlutusNeo by Afrinvest' ? (
+                                        <img src="/logos/plutusneo.png" alt="PlutusNeo" className="h-20 object-contain" />
                                     ) : item.name === 'ATFA' ? (
                                         <img src="/logos/atfa-new.png" alt="ATFA" className="h-20 object-contain" />
                                     ) : item.name === 'Grey Finance' ? (
@@ -124,6 +124,8 @@ const PortfolioPage = () => {
                                         <img src="/logos/senjam.png" alt="SEN-Jam Pharmaceuticals" className="h-14 object-contain" />
                                     ) : item.name === 'Founders Syndicate' ? (
                                         <img src="/logos/founders-syndicate.svg" alt="Founders Syndicate" className="h-16 object-contain" />
+                                    ) : item.name === 'Phor-Med' ? (
+                                        <img src="/logos/phormed.png" alt="Phor-Med" className="h-16 object-contain" />
                                     ) : (
                                         <h3 className="text-2xl font-bold text-[#0F172A] heading-serif">{item.name}</h3>
                                     )}

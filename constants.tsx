@@ -62,7 +62,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   { name: 'Grey Matter Social Space', description: 'Hospitality venue for technology founders', sector: 'Significant Holdings · Hospitality', website: 'https://www.instagram.com/greymatter.social?igsh=MXFydjM5aGprMTA0NQ==' },
   { name: 'Varsani Interiors', description: 'Real estate holdings', sector: 'Significant Holdings · Real Estate', website: '' },
   { name: 'Blocbanc Inc', description: 'Fintech infrastructure and BaaS', sector: 'Significant Holdings · Fintech', website: '' },
-  { name: 'Optimus (By Afrinvest) LTD', description: 'Investment management services', sector: 'Significant Holdings · Finance', website: '' },
+  { name: 'PlutusNeo by Afrinvest', description: 'Investment management services', sector: 'Significant Holdings · Fintech', website: 'https://optimus.ng' },
   { name: 'ATFA', description: 'Art/collectibles investment and creative technology', sector: 'Significant Holdings · Alternative Assets', website: 'https://athingforart.com' },
   { name: 'SSFO Commodities Trading', description: 'Commodities trading operations', sector: 'Significant Holdings · Commodities', website: '' },
 
