@@ -52,8 +52,8 @@ const PortfolioPage = () => {
                             key={filter}
                             onClick={() => setActiveFilter(filter)}
                             className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeFilter === filter
-                                    ? 'bg-[#0F172A] text-white shadow-lg'
-                                    : 'bg-white text-[#64748B] hover:bg-gray-50 border border-gray-100'
+                                ? 'bg-[#0F172A] text-white shadow-lg'
+                                : 'bg-white text-[#64748B] hover:bg-gray-50 border border-gray-100'
                                 }`}
                         >
                             {filter}
@@ -81,29 +81,29 @@ const PortfolioPage = () => {
                                 </span>
 
                                 {/* Logo / Name Logic */}
-                                <div className="min-h-[3rem] mb-4 flex items-center">
+                                <div className="min-h-[4rem] mb-4 flex items-center">
                                     {item.name === 'Cray Finance' ? (
-                                        <img src="/logos/cray-finance.png" alt="Cray Finance" className="h-8 object-contain" />
+                                        <img src="/logos/cray-finance.png" alt="Cray Finance" className="h-12 object-contain" />
                                     ) : item.name === 'FuelGap LLC' ? (
-                                        <img src="/logos/fuelgap.png" alt="FuelGap" className="h-8 object-contain" />
+                                        <img src="/logos/fuelgap.png" alt="FuelGap" className="h-12 object-contain" />
                                     ) : item.name === 'Kyshi' ? (
-                                        <img src="/logos/kyshi.png" alt="Kyshi" className="h-8 object-contain" />
+                                        <img src="/logos/kyshi.png" alt="Kyshi" className="h-12 object-contain" />
                                     ) : item.name === 'Grey Matter Social Space' ? (
-                                        <img src="/logos/grey-matter.png" alt="Grey Matter" className="h-16 object-contain" />
+                                        <img src="/logos/grey-matter.png" alt="Grey Matter" className="h-24 object-contain" />
                                     ) : item.name === 'Blocbanc Inc' ? (
-                                        <img src="/logos/blocbanc.png" alt="Blocbanc" className="h-16 object-contain" />
+                                        <img src="/logos/blocbanc.png" alt="Blocbanc" className="h-24 object-contain" />
                                     ) : item.name === 'ATFA' ? (
-                                        <img src="/logos/atfa-new.png" alt="ATFA" className="h-8 object-contain" />
+                                        <img src="/logos/atfa-new.png" alt="ATFA" className="h-12 object-contain" />
                                     ) : item.name === 'Grey Finance' ? (
-                                        <img src="/logos/grey-finance.png" alt="Grey Finance" className="h-8 object-contain" />
+                                        <img src="/logos/grey-finance.png" alt="Grey Finance" className="h-12 object-contain" />
                                     ) : item.name === 'Eliaz Therapeutics' ? (
-                                        <img src="/logos/eliaz.png" alt="Eliaz Therapeutics" className="h-10 object-contain" />
+                                        <img src="/logos/eliaz.png" alt="Eliaz Therapeutics" className="h-16 object-contain" />
                                     ) : item.name === 'Bitnob' ? (
-                                        <img src="/logos/bitnob.png" alt="Bitnob" className="h-8 object-contain" />
+                                        <img src="/logos/bitnob.png" alt="Bitnob" className="h-12 object-contain" />
                                     ) : item.name === 'Pyn AI' ? (
-                                        <img src="/logos/pyn.jpg" alt="Pyn AI" className="h-8 object-contain" />
+                                        <img src="/logos/pyn.jpg" alt="Pyn AI" className="h-12 object-contain" />
                                     ) : item.name === 'Mercury Bank' ? (
-                                        <img src="/logos/mercury.png" alt="Mercury Bank" className="h-8 object-contain" />
+                                        <img src="/logos/mercury.png" alt="Mercury Bank" className="h-12 object-contain" />
                                     ) : item.name === 'Multi-trex PLC' ? (
                                         <h3 className="text-2xl font-bold text-[#0F172A] heading-serif">Multi-trex PLC</h3>
                                     ) : (
