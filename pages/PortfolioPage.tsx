@@ -10,6 +10,7 @@ const PortfolioPage = () => {
         'All',
         'Energy',
         'Fintech',
+        'Financial Services',
         'Commodities & Agribusiness',
         'FoodTech',
         'Biotech',
@@ -29,6 +30,9 @@ const PortfolioPage = () => {
         }
         if (activeFilter === 'Real Estate & Hospitality') {
             return item.sector.includes('Real Estate') || item.sector.includes('Hospitality');
+        }
+        if (activeFilter === 'Financial Services') {
+            return item.sector.includes('Finance') || item.sector.includes('VC') || item.sector.includes('Syndicate');
         }
 
         return item.sector.includes(activeFilter);
