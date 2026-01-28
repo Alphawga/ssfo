@@ -58,16 +58,16 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   { name: 'FuelGap LLC', description: 'US-based gas station lending platform', sector: 'Significant Holdings · Fintech', website: 'https://fuelgap.com' },
   { name: 'Kyshi', description: 'Merchant of Record infrastructure', sector: 'Significant Holdings · Fintech', website: 'https://kyshi.co' },
   { name: 'Mepe Farms, Ghana', description: 'Integrated farms and eco-resort hospitality', sector: 'Significant Holdings · Agribusiness', website: 'https://mepefarms.com' },
-  { name: 'Grey Matter Social Space', description: 'Hospitality venue for technology founders', sector: 'Significant Holdings · Hospitality', website: 'https://greymatterspace.com' },
-  { name: 'Varsani Interiors', description: 'Real estate holdings', sector: 'Significant Holdings · Real Estate', website: 'https://varsaniinteriors.com' },
-  { name: 'Blocbanc Inc', description: 'Fintech infrastructure and BaaS', sector: 'Significant Holdings · Fintech', website: 'https://blocbanc.com' },
+  { name: 'Grey Matter Social Space', description: 'Hospitality venue for technology founders', sector: 'Significant Holdings · Hospitality', website: 'https://www.instagram.com/greymatter.social?igsh=MXFydjM5aGprMTA0NQ==' },
+  { name: 'Varsani Interiors', description: 'Real estate holdings', sector: 'Significant Holdings · Real Estate', website: '' },
+  { name: 'Blocbanc Inc', description: 'Fintech infrastructure and BaaS', sector: 'Significant Holdings · Fintech', website: '' },
   { name: 'Optimus (By Afrinvest) LTD', description: 'Investment management services', sector: 'Significant Holdings · Finance', website: '' },
   { name: 'ATFA', description: 'Art/collectibles investment and creative technology', sector: 'Significant Holdings · Alternative Assets', website: 'https://athingforart.com' },
   { name: 'SSFO Commodities Trading', description: 'Commodities trading operations', sector: 'Significant Holdings · Commodities', website: '' },
 
   // Publicly Listed Holdings
-  { name: 'Multi-trex PLC', description: "West Africa's largest cocoa processor", sector: 'Publicly Listed · Agribusiness', website: 'https://multitrex.com' },
-  { name: 'DeapCap (CMFC)', description: 'Publicly traded investment vehicle', sector: 'Publicly Listed · Finance', website: '' },
+  { name: 'Multi-trex PLC', description: "West Africa's largest cocoa processor", sector: 'Publicly Listed · Agribusiness', website: 'https://multitrexplc.com' },
+  { name: 'DeapCap (CMFC)', description: 'Publicly traded investment vehicle', sector: 'Publicly Listed · Finance', website: 'https://afx.kwayisi.org/ngx/deapcap.html' },
 
   // Angel/Venture Holdings
   { name: 'Mercury Bank', description: 'Digital business banking', sector: 'Angel/Venture · Fintech', website: 'https://mercury.com' },
@@ -79,12 +79,12 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   { name: 'Novira Therapeutics', description: 'Therapeutics development', sector: 'Angel/Venture · Biotech', website: '' },
   { name: 'Bitnob', description: 'Bitcoin infrastructure', sector: 'Angel/Venture · Fintech', website: 'https://bitnob.com' },
   { name: 'Grey Finance', description: 'International bank accounts and card issuing', sector: 'Angel/Venture · Fintech', website: 'https://grey.co' },
-  { name: 'Pyn AI', description: 'AI powered job search platform', sector: 'Angel/Venture · AI', website: '' },
+  { name: 'Pyn AI', description: 'AI powered job search platform', sector: 'Angel/Venture · AI', website: 'https://www.joinpyn.com' },
   { name: 'Doorvest', description: 'Real estate investing platform', sector: 'Angel/Venture · Fintech', website: '' },
 
   // Investment Advisory
-  { name: 'VII Ventures', description: 'Middle East-based fund - GP & Senior Advisor. Portfolio: Palantir, DoorDash, SpaceX, Airbnb, Robinhood, Ripple, Plaid, and more', sector: 'Investment Advisory · VC', website: '' },
-  { name: 'Founders Syndicate', description: 'Angel investment syndicate', sector: 'Investment Advisory · Syndicate', website: '' },
+  { name: 'VII Ventures', description: 'Middle East-based fund - GP & Senior Advisor. Portfolio: Palantir, DoorDash, SpaceX, Airbnb, Robinhood, Ripple, Plaid, and more', sector: 'Investment Advisory · VC', website: 'https://www.viiventures.co' },
+  { name: 'Founders Syndicate', description: 'Angel investment syndicate', sector: 'Investment Advisory · Syndicate', website: 'https://www.foundersyndicate.com' },
 ];
 
 export const SERVICES_DATA: ServiceItem[] = [

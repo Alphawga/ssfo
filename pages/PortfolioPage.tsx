@@ -90,8 +90,8 @@ const PortfolioPage = () => {
                                         <img src="/logos/kyshi.png" alt="Kyshi" className="h-20 object-contain" />
                                     ) : item.name === 'Grey Matter Social Space' ? (
                                         <img src="/logos/grey-matter.png" alt="Grey Matter" className="h-24 object-contain" />
-                                    ) : item.name === 'Blocbanc Inc' ? (
-                                        <img src="/logos/blocbanc.png" alt="Blocbanc" className="h-24 object-contain" />
+                                    ) : item.name === 'Optimus (By Afrinvest) LTD' ? (
+                                        <img src="/logos/optimus.png" alt="Optimus" className="h-20 object-contain" />
                                     ) : item.name === 'ATFA' ? (
                                         <img src="/logos/atfa-new.png" alt="ATFA" className="h-20 object-contain" />
                                     ) : item.name === 'Grey Finance' ? (
