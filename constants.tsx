@@ -54,7 +54,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   // Significant Holdings
   { name: 'Davidson Oil Tools LTD', description: 'Snubbing and downhole tools & equipment leasing', sector: 'Significant Holdings · Energy', website: 'https://davidsonoiltools.com' },
   { name: 'Davidson Oil and Gas', description: 'Oil servicing and industrial gas manufacturing', sector: 'Significant Holdings · Energy', website: 'https://davidsonoilandgas.com' },
-  { name: 'Cray Finance', description: 'African payment rails orchestration', sector: 'Significant Holdings · Fintech', website: 'https://crayfinance.com' },
+  { name: 'Cray Finance', description: 'Pan-African payment rails orchestration company serving 13+ countries in Africa. Canadian MSB, IMTO, MFB, PSSP', sector: 'Significant Holdings · Fintech', website: 'https://crayfinance.com' },
   { name: 'FuelGap LLC', description: 'US-based gas station lending platform', sector: 'Significant Holdings · Fintech', website: 'https://fuelgap.com' },
   { name: 'Kyshi', description: 'Merchant of Record infrastructure', sector: 'Significant Holdings · Fintech', website: 'https://kyshi.co' },
   { name: 'Mepe Farms, Ghana', description: 'Integrated farms and eco-resort hospitality', sector: 'Significant Holdings · Agribusiness', website: 'https://mepefarms.com' },
@@ -66,7 +66,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   { name: 'SSFO Commodities Trading', description: 'Commodities trading operations', sector: 'Significant Holdings · Commodities', website: '' },
 
   // Publicly Listed Holdings
-  { name: 'Multitrex PLC', description: "West Africa's largest cocoa processor", sector: 'Publicly Listed · Agribusiness', website: 'https://multitrex.com' },
+  { name: 'Multi-trex PLC', description: "West Africa's largest cocoa processor", sector: 'Publicly Listed · Agribusiness', website: 'https://multitrex.com' },
   { name: 'DeapCap (CMFC)', description: 'Publicly traded investment vehicle', sector: 'Publicly Listed · Finance', website: '' },
 
   // Angel/Venture Holdings
@@ -75,9 +75,12 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   { name: 'SEN-Jam Pharmaceuticals', description: 'Biotech research and development', sector: 'Angel/Venture · Biotech', website: '' },
   { name: 'Yummy Future', description: 'Food technology platform', sector: 'Angel/Venture · FoodTech', website: '' },
   { name: 'Eliaz Therapeutics', description: 'Biotech therapeutics', sector: 'Angel/Venture · Biotech', website: '' },
+  { name: 'Phor-Med', description: 'Biotech innovation', sector: 'Angel/Venture · Biotech', website: '' },
+  { name: 'Novira Therapeutics', description: 'Therapeutics development', sector: 'Angel/Venture · Biotech', website: '' },
   { name: 'Bitnob', description: 'Bitcoin infrastructure', sector: 'Angel/Venture · Fintech', website: 'https://bitnob.com' },
   { name: 'Grey Finance', description: 'International bank accounts and card issuing', sector: 'Angel/Venture · Fintech', website: 'https://grey.co' },
   { name: 'Pyn AI', description: 'AI powered job search platform', sector: 'Angel/Venture · AI', website: '' },
+  { name: 'Doorvest', description: 'Real estate investing platform', sector: 'Angel/Venture · Fintech', website: '' },
 
   // Investment Advisory
   { name: 'VII Ventures', description: 'Middle East-based fund - GP & Senior Advisor. Portfolio: Palantir, DoorDash, SpaceX, Airbnb, Robinhood, Ripple, Plaid, and more', sector: 'Investment Advisory · VC', website: '' },

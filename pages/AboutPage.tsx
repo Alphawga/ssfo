@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, GraduationCap, Briefcase, Globe, Award, Building2, Sparkles, BookOpen } from 'lucide-react';
+import { Linkedin, GraduationCap, Briefcase, Globe, Award, Building2, Layers, BookOpen } from 'lucide-react';
 import { SectionContainer, Badge } from '../components/UI';
 import ScrollReveal from '../components/ScrollReveal';
 
@@ -255,7 +255,7 @@ const AboutPage = () => {
                         <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-14 h-14 bg-[#C5A059] rounded-xl flex items-center justify-center">
-                                    <Sparkles className="w-7 h-7 text-[#0F172A]" />
+                                    <Globe className="w-7 h-7 text-[#0F172A]" />
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold text-white heading-serif">Blocbanc (USA) Inc.</h3>
@@ -275,6 +275,28 @@ const AboutPage = () => {
                                 <div className="bg-[#C5A059]/20 px-3 py-1 rounded-lg">
                                     <span className="text-[#C5A059] font-bold text-xs">Canadian MSB</span>
                                 </div>
+                            </div>
+                        </div>
+
+                        {/* Cray Finance */}
+                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-14 h-14 bg-[#C5A059] rounded-xl flex items-center justify-center">
+                                    <Layers className="w-7 h-7 text-[#0F172A]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-white heading-serif">Cray Finance</h3>
+                                    <p className="text-[#C5A059] text-sm font-bold uppercase tracking-widest">Founder</p>
+                                </div>
+                            </div>
+                            <p className="text-blue-100/70 leading-relaxed mb-6">
+                                Pan-African payment rails orchestration company serving 13+ countries in Africa. Canadian MSB, IMTO, MFB, PSSP.
+                            </p>
+                            <div className="flex items-center gap-3">
+                                <div className="bg-[#C5A059]/20 px-4 py-2 rounded-lg">
+                                    <span className="text-[#C5A059] font-bold text-sm">Pan-African</span>
+                                </div>
+                                <span className="text-blue-100/50 text-sm">Payment Orchestration</span>
                             </div>
                         </div>
                     </div>

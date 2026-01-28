@@ -89,7 +89,7 @@ const HomePage = () => {
                         Most family offices write checks and wait. SSFO operates differently. We take concentrated positions in businesses we understand deeply—then roll up our sleeves. Our portfolio companies gain access to fractional executive support, M&A capabilities, and strategic guidance typically reserved for firms ten times their size.
                     </p>
                     <p className="text-lg text-[#0F172A] font-medium mt-8">
-                        Abu Dhabi headquarters. Portfolio spanning Africa, the US, and beyond. One principal making decisions.
+                        Portfolio spanning Africa, the US, and beyond. One principal making decisions.
                     </p>
                 </div>
             </SectionContainer>
@@ -128,7 +128,7 @@ const HomePage = () => {
                                 <div className="text-5xl md:text-6xl font-bold text-white heading-serif mb-2">
                                     $<AnimatedCounter value={4} suffix="BN" />
                                 </div>
-                                <span className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Capital Deployed</span>
+                                <span className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-bold">Total Market Cap</span>
                             </div>
                         </div>
                     </ScrollReveal>
@@ -146,7 +146,7 @@ const HomePage = () => {
                                 Serial entrepreneur and investor who has founded and financed technology companies across <span className="text-[#0F172A] font-semibold">Nigeria, the United States, and the United Kingdom</span>.
                             </p>
                             <p>
-                                His track record includes co-founding <span className="text-[#0F172A] font-semibold">Novira Therapeutics</span> (acquired by J&J for <span className="text-[#C5A059] font-bold">$600M</span>), founding <span className="text-[#0F172A] font-semibold">Generate4Schools</span> which pioneered merchant processing fees for education, and building <span className="text-[#0F172A] font-semibold">TechAdvance/Blocbanc</span>—recognized by the London Stock Exchange as one of "100 Companies to Inspire Africa."
+                                His track record includes co-founding <span className="text-[#0F172A] font-semibold">Novira Therapeutics</span> (acquired by J&J for <span className="text-[#C5A059] font-bold">$600M</span>), co-founding and lead investor in <span className="text-[#0F172A] font-semibold">Generate4Schools (now defunct)</span> which pioneered merchant processing fees for education, and building <span className="text-[#0F172A] font-semibold">TechAdvance/Blocbanc</span>—recognized by the London Stock Exchange as one of "100 Companies to Inspire Africa."
                             </p>
                         </div>
                         <blockquote className="border-l-4 border-[#C5A059] pl-6 my-8">

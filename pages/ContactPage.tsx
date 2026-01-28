@@ -10,7 +10,7 @@ const ContactPage = () => {
     const [error, setError] = useState<string | null>(null);
 
     // Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io
-    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xojwaqwp';
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -118,8 +118,9 @@ const ContactPage = () => {
                                     <textarea id="message" name="message" required rows={4} className="w-full px-0 py-3 border-b border-gray-200 focus:border-[#C5A059] outline-none transition-all resize-none bg-transparent" placeholder="Provide a summary of your inquiry..."></textarea>
                                 </div>
                                 <div className="group">
-                                    <label htmlFor="deck" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2">Attach Deck (Optional)</label>
-                                    <input id="deck" name="deck" type="file" accept=".pdf,.ppt,.pptx,.doc,.docx" className="w-full py-3 text-sm text-[#64748B] file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-[#0F172A] file:text-white hover:file:bg-[#1E293B] file:cursor-pointer" />
+                                    {/* <label htmlFor="deck" className="block text-[10px] uppercase tracking-widest font-bold text-[#64748B] mb-2">Attach Deck (Optional)</label>
+                                    <input id="deck" name="deck" type="file" accept=".pdf,.ppt,.pptx,.doc,.docx" className="w-full py-3 text-sm text-[#64748B] file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-[#0F172A] file:text-white hover:file:bg-[#1E293B] file:cursor-pointer" /> */}
+
                                 </div>
                                 <PrimaryButton type="submit" className="w-full py-5 text-sm" disabled={isSubmitting}>
                                     {isSubmitting ? 'Sending...' : 'Send Message'}

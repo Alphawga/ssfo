@@ -20,8 +20,8 @@ const ThesisPage = () => (
                     <p>
                         We focus on companies with proven product-market fit but lacking the institutional frameworks required to scale internationally. By deploying our fractional executive team, we bridge the gap between "good" and "institutional grade."
                     </p>
-                    <h3 className="text-3xl font-bold text-[#0F172A] heading-serif mt-16 mb-8">The Three Pillars of SSFO</h3>
-                    <div className="grid md:grid-cols-3 gap-8 text-left">
+                    <h3 className="text-3xl font-bold text-[#0F172A] heading-serif mt-16 mb-8">The Four Cs of SSFO</h3>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
                         <div>
                             <span className="text-[#C5A059] font-bold text-4xl heading-serif">01</span>
                             <h4 className="text-lg font-bold text-[#0F172A] mt-4 mb-2">Conviction</h4>
@@ -36,6 +36,11 @@ const ThesisPage = () => (
                             <span className="text-[#C5A059] font-bold text-4xl heading-serif">03</span>
                             <h4 className="text-lg font-bold text-[#0F172A] mt-4 mb-2">Clarity</h4>
                             <p className="text-sm">Institutional frameworks designed for speed and transparency.</p>
+                        </div>
+                        <div>
+                            <span className="text-[#C5A059] font-bold text-4xl heading-serif">04</span>
+                            <h4 className="text-lg font-bold text-[#0F172A] mt-4 mb-2">Currency</h4>
+                            <p className="text-sm">We invest in businesses that have reduced currency risks or strong mitigants against currency risk.</p>
                         </div>
                     </div>
                 </div>
