@@ -52,6 +52,7 @@ export const INVESTMENT_CATEGORIES = [
 
 export const PORTFOLIO_DATA: PortfolioItem[] = [
   // Significant Holdings
+  { name: 'Novira Therapeutics', description: 'Co-founded Novira therapeutics an antiviral drug discovery company in 2006 and exited to Johnson and Johnson in 2015 for $600M', sector: 'Significant Holdings · Biotech', website: '' },
   { name: 'Davidson Oil Tools LTD', description: 'Snubbing and downhole tools & equipment leasing', sector: 'Significant Holdings · Energy', website: 'https://davidsonoiltools.com' },
   { name: 'Davidson Oil and Gas', description: 'Oil servicing and industrial gas manufacturing', sector: 'Significant Holdings · Energy', website: 'https://davidsonoilandgas.com' },
   { name: 'Cray Finance', description: 'Pan-African payment rails orchestration company serving 13+ countries in Africa. Canadian MSB, IMTO, MFB, PSSP', sector: 'Significant Holdings · Fintech', website: 'https://crayfinance.com' },
@@ -76,7 +77,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   { name: 'Yummy Future', description: 'Food technology platform', sector: 'Angel/Venture · FoodTech', website: '' },
   { name: 'Eliaz Therapeutics', description: 'Biotech therapeutics', sector: 'Angel/Venture · Biotech', website: '' },
   { name: 'Phor-Med', description: 'Biotech innovation', sector: 'Angel/Venture · Biotech', website: '' },
-  { name: 'Novira Therapeutics', description: 'Therapeutics development', sector: 'Angel/Venture · Biotech', website: '' },
+
   { name: 'Bitnob', description: 'Bitcoin infrastructure', sector: 'Angel/Venture · Fintech', website: 'https://bitnob.com' },
   { name: 'Grey Finance', description: 'International bank accounts and card issuing', sector: 'Angel/Venture · Fintech', website: 'https://grey.co' },
   { name: 'Pyn AI', description: 'AI powered job search platform', sector: 'Angel/Venture · AI', website: 'https://www.joinpyn.com' },

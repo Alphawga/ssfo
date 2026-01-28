@@ -71,7 +71,7 @@ const Navbar = ({ currentPage }: NavbarProps) => {
                                 </a>
                             ))}
                             <PrimaryButton className="py-2.5 px-6 text-xs uppercase tracking-widest" onClick={() => window.location.hash = '#contact'}>
-                                Submit Deal
+                                Talk to Us
                             </PrimaryButton>
                         </div>
 
@@ -112,7 +112,7 @@ const Navbar = ({ currentPage }: NavbarProps) => {
                                 className="mt-8 w-full py-4 text-center"
                                 onClick={() => handleNavClick('#contact')}
                             >
-                                Submit a Deal →
+                                Talk to Us →
                             </PrimaryButton>
                         </nav>
                     </motion.div>

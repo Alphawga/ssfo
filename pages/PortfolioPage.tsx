@@ -105,7 +105,21 @@ const PortfolioPage = () => {
                                     ) : item.name === 'Mercury Bank' ? (
                                         <img src="/logos/mercury.png" alt="Mercury Bank" className="h-20 object-contain" />
                                     ) : item.name === 'Multi-trex PLC' ? (
-                                        <h3 className="text-2xl font-bold text-[#0F172A] heading-serif">Multi-trex PLC</h3>
+                                        <img src="/logos/multitrex.png" alt="Multi-trex PLC" className="h-16 object-contain" />
+                                    ) : item.name === 'Novira Therapeutics' ? (
+                                        <img src="/logos/novira.jpg" alt="Novira Therapeutics" className="h-14 object-contain" />
+                                    ) : item.name === 'Yummy Future' ? (
+                                        <img src="/logos/yummy.jpg" alt="Yummy Future" className="h-16 object-contain rounded-full" />
+                                    ) : item.name === 'VII Ventures' ? (
+                                        <img src="/logos/vii.jpg" alt="VII Ventures" className="h-12 object-contain" />
+                                    ) : item.name === 'Token Metrics LLC' ? (
+                                        <img src="/logos/tokenmetrics.png" alt="Token Metrics LLC" className="h-16 object-contain" />
+                                    ) : item.name === 'Doorvest' ? (
+                                        <img src="/logos/doorvest.png" alt="Doorvest" className="h-14 object-contain" />
+                                    ) : item.name === 'SEN-Jam Pharmaceuticals' ? (
+                                        <img src="/logos/senjam.png" alt="SEN-Jam Pharmaceuticals" className="h-14 object-contain" />
+                                    ) : item.name === 'Founders Syndicate' ? (
+                                        <img src="/logos/founders-syndicate.svg" alt="Founders Syndicate" className="h-16 object-contain" />
                                     ) : (
                                         <h3 className="text-2xl font-bold text-[#0F172A] heading-serif">{item.name}</h3>
                                     )}

@@ -30,7 +30,7 @@ const HomePage = () => {
                         Backing exceptional founders across <span className="text-[#0F172A] font-semibold">energy, fintech, agribusiness, and technology</span> with capital, operational expertise, and a principal who answers the phone.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <PrimaryButton className="px-10" onClick={() => window.location.hash = '#contact'}>Submit a Deal →</PrimaryButton>
+                        <PrimaryButton className="px-10" onClick={() => window.location.hash = '#contact'}>Talk to Us →</PrimaryButton>
                         <SecondaryButton className="px-10" onClick={() => window.location.hash = '#portfolio'}>Explore Portfolio</SecondaryButton>
                     </div>
                     {/* Trust Signals */}
